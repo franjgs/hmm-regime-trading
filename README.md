@@ -35,6 +35,9 @@ pip install -r requirements.txt
 ├── train_hmm.py
 ├── run_walk_forward.py
 ├── run_backtest.py
+├── docs/
+│   ├── tfg_index_mapping.md
+│   └── methodology_risks.md
 ├── src/
 │   ├── data_loader.py
 │   ├── features.py
@@ -80,6 +83,7 @@ Implemented scaffold features:
 ## Student TODOs
 
 - Improve data validation and missing-value handling.
+- Complete the literature review and connect it to the implementation choices.
 - Add robust train/test and walk-forward evaluation.
 - Compare different feature sets and HMM state counts.
 - Add transaction costs, slippage, and position sizing to backtests.

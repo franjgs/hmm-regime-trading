@@ -34,6 +34,8 @@ def train_gaussian_hmm(
     random_seed: int,
 ) -> tuple[GaussianHMM, StandardScaler]:
     """Scale features and train a GaussianHMM."""
+    # TODO: Fit the scaler only on the training window once walk-forward
+    # validation is implemented.
     scaler = StandardScaler()
     scaled_features = scaler.fit_transform(feature_matrix)
 
@@ -44,6 +46,7 @@ def train_gaussian_hmm(
         random_state=random_seed,
     )
     model.fit(scaled_features)
+    # TODO: Record convergence diagnostics and compare multiple random seeds.
     return model, scaler
 
 

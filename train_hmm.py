@@ -25,6 +25,7 @@ feature_columns = config["hmm"]["feature_columns"]
 return_column = f"return_{config['features']['return_lag']}d"
 feature_matrix, aligned_data = prepare_hmm_matrix(feature_data, feature_columns)
 
+# TODO: Split model development from final evaluation to reduce overfitting risk.
 min_observations = config["hmm"]["min_observations"]
 if len(aligned_data) < min_observations:
     raise ValueError(

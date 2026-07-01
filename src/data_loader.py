@@ -10,6 +10,7 @@ def load_config(config_path: str | Path = "config.yaml") -> dict:
     """Load project configuration from a YAML file."""
     with Path(config_path).open("r", encoding="utf-8") as file:
         config = yaml.safe_load(file)
+    # TODO: Add schema validation so configuration errors fail early.
     return config
 
 
@@ -31,6 +32,7 @@ def load_market_data(input_path: str | Path) -> pd.DataFrame:
     """Load market data from CSV with a DateTime index."""
     data = pd.read_csv(input_path, index_col=0, parse_dates=True)
     data.index.name = "Date"
+    # TODO: Validate chronological order, duplicate dates, and missing values.
     return data
 
 
