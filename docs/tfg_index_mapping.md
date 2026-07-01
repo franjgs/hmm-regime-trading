@@ -35,7 +35,8 @@ Repository references:
 - `docs/methodology_risks.md`: risk checklist for the methodology.
 - `src/hmm_regime.py`: HMM training scaffold.
 - `src/features.py`: causal feature engineering scaffold.
-- `src/label_switching.py`: label switching handling scaffold.
+- `src/label_switching.py`: label switching scaffold using explicit raw and
+  semantic regime labels.
 
 Student TODO:
 
@@ -90,7 +91,8 @@ Repository references:
 
 - `train_hmm.py`: trains the initial HMM and saves regime-enriched data.
 - `src/hmm_regime.py`: model preparation, training, prediction, and persistence.
-- `src/label_switching.py`: basic state ordering convention.
+- `src/label_switching.py`: state ordering convention and semantic regime
+  labels.
 - `models/hmm/`: generated model artifacts.
 
 Student TODO:
@@ -106,13 +108,17 @@ Purpose in the thesis:
 
 Repository references:
 
-- `run_walk_forward.py`: placeholder for rolling or expanding-window validation.
+- `run_walk_forward.py`: sequential walk-forward validation driver.
+- `src/walk_forward.py`: reusable chronological split and per-window HMM
+  utilities.
+- `data/processed/walk_forward_regimes.csv`: generated test-window regime
+  predictions with `raw_hmm_state`, `regime_id`, and `regime_label`.
 - `docs/methodology_risks.md`: look-ahead bias and overfitting warnings.
 
 Student TODO:
 
-- TODO: Implement a walk-forward protocol before drawing performance
-  conclusions.
+- TODO: Compare rolling and expanding walk-forward protocols before drawing
+  performance conclusions.
 
 ## 7. Trading Strategy and Backtest
 

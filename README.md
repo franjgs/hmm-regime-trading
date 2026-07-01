@@ -78,7 +78,16 @@ Implemented scaffold features:
 - Train a `GaussianHMM` using `hmmlearn`.
 - Apply a basic label switching convention.
 - Save regime-enriched data to `data/processed/`.
+- Save walk-forward test-window regimes to
+  `data/processed/walk_forward_regimes.csv`.
 - Save trained HMM artifacts to `models/hmm/`.
+
+Walk-forward output columns use explicit regime naming:
+
+- `raw_hmm_state`: arbitrary HMM state predicted by the model.
+- `regime_id`: numeric semantic regime identifier.
+- `regime_label`: semantic regime label, one of `defensive`, `neutral`,
+  `growth`.
 
 ## Student TODOs
 

@@ -4,12 +4,8 @@ from dataclasses import dataclass
 
 import pandas as pd
 
-from src.hmm_regime import (
-    add_regime_labels,
-    predict_hmm_states,
-    prepare_hmm_matrix,
-    train_gaussian_hmm,
-)
+from src.hmm_regime import predict_hmm_states, prepare_hmm_matrix, train_gaussian_hmm
+from src.label_switching import add_ordered_regime_column
 
 
 @dataclass(frozen=True)
@@ -108,12 +104,16 @@ def run_hmm_walk_forward_iteration(
     test_raw_states = predict_hmm_states(hmm_model, scaler, test_matrix)
 
     training_regime_data = aligned_train_data.copy()
-    training_regime_data["hmm_state"] = train_raw_states
+    training_regime_data["raw_hmm_state"] = train_raw_states
 
-    test_regime_data = add_regime_labels(
-        data=aligned_test_data,
-        states=test_raw_states,
+    test_regime_data = aligned_test_data.copy()
+    test_regime_data["raw_hmm_state"] = test_raw_states
+    test_regime_data = add_ordered_regime_column(
+        data=test_regime_data,
+        state_column="raw_hmm_state",
         return_column=return_column,
+        ordered_column="regime_id",
+        semantic_column="regime_label",
         training_data=training_regime_data,
     )
 

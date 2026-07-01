@@ -14,7 +14,8 @@ Current scaffold status:
 - `src/features.py` uses past returns, rolling volatility, and momentum.
 - `src/hmm_regime.py` currently fits the scaler and HMM on the full selected
   sample in `train_hmm.py`.
-- `run_walk_forward.py` is only a placeholder.
+- `run_walk_forward.py` fits scalers, HMMs, and label mappings inside each
+  training window, then saves test-window predictions only.
 
 Student TODO:
 
@@ -33,6 +34,9 @@ Current scaffold status:
 
 - `src/label_switching.py` maps three raw HMM states to semantic regimes using
   mean return, volatility, a drawdown proxy, and regime frequency.
+- `data/processed/walk_forward_regimes.csv` stores `raw_hmm_state`,
+  `regime_id`, and `regime_label` so arbitrary model states are separated from
+  semantic regime interpretation.
 - This convention is simple and useful for inspection, but it can itself create
   look-ahead bias if calculated on the evaluation period instead of the training
   window.
@@ -53,7 +57,8 @@ Current scaffold status:
 
 - `config.yaml` defines one initial feature set and one HMM configuration.
 - `train_hmm.py` trains one model on the selected benchmark asset.
-- No validation results are implemented yet.
+- `run_walk_forward.py` provides a basic validation scaffold, but it is not yet
+  a complete strategy evaluation.
 
 Student TODO:
 
