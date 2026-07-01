@@ -65,6 +65,7 @@ def add_regime_labels(
     data: pd.DataFrame,
     states: np.ndarray,
     return_column: str,
+    training_data: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """Add raw HMM states and ordered regime labels to a data frame."""
     enriched = data.copy()
@@ -74,6 +75,7 @@ def add_regime_labels(
         state_column="hmm_state",
         return_column=return_column,
         ordered_column="regime",
+        training_data=training_data,
     )
     return enriched
 

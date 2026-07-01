@@ -31,9 +31,11 @@ label switching.
 
 Current scaffold status:
 
-- `src/label_switching.py` orders states by average realized return.
+- `src/label_switching.py` maps three raw HMM states to semantic regimes using
+  mean return, volatility, a drawdown proxy, and regime frequency.
 - This convention is simple and useful for inspection, but it can itself create
-  look-ahead bias if calculated on the evaluation period.
+  look-ahead bias if calculated on the evaluation period instead of the training
+  window.
 
 Student TODO:
 
