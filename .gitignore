@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.env
+.venv
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+.spyproject/
+.spyderproject
+
+# Project outputs
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+models/hmm/*
+!models/hmm/.gitkeep
+models/*
+!models/hmm/
+reports/
+figures/
+
+# OS
+.DS_Store
+Thumbs.db

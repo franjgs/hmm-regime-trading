@@ -1,0 +1,35 @@
+project:
+  name: hmm-regime-trading
+  random_seed: 42
+
+paths:
+  raw_data_dir: data/raw
+  processed_data_dir: data/processed
+  model_dir: models/hmm
+
+data:
+  tickers:
+    - SPY
+    - QQQ
+    - IWM
+  benchmark_ticker: SPY
+  start_date: "2010-01-01"
+  end_date: null
+  interval: "1d"
+  auto_adjust: true
+
+features:
+  price_column: Close
+  return_lag: 1
+  volatility_window: 20
+  momentum_window: 20
+
+hmm:
+  n_components: 3
+  covariance_type: full
+  n_iter: 200
+  min_observations: 250
+  feature_columns:
+    - return_1d
+    - volatility_20d
+    - momentum_20d

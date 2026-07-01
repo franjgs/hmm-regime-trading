@@ -1,0 +1,14 @@
+name: llm_rl_finance
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scikit-learn
+  - hmmlearn
+  - yfinance
+  - pyyaml
+  - joblib
+  - matplotlib
+  - pip
